@@ -1,0 +1,12 @@
+.checkout_btn{
+    background-color: #f16508ca;
+    width: 200px;
+    height: 30px;
+    border: 1px solid #221f1f;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+.checkout_btn:hover{
+    transform: scale(1.1); 
+}

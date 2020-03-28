@@ -5,10 +5,9 @@
     text-align: center;
 }
 .header nav{
-    background-color: black;
+    background-color: grey;
     line-height: 40px;
     font-size: 20px;
-    text-align: left;
 }
 nav a{
     color: white;
@@ -17,5 +16,5 @@ nav a{
     padding: 10px;
 }
 nav a:hover{
-    background-color: gray;
+    color: black;
 }

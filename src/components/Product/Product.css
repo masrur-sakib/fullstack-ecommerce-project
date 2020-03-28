@@ -5,6 +5,10 @@
     margin-right: 20px;
     padding-bottom: 5px;
 }
+.product_details{
+    margin: 10px;
+    padding: 10px;
+}
 .product_name{
     color: blue;
     font-weight: 500;
@@ -16,4 +20,14 @@
     border: 1px solid #221f1f;
     border-radius: 5px;
     cursor: pointer;
+    transition: all .2s ease-in-out;
 }
+.cart_button:hover { 
+    transform: scale(1.1); 
+}
+.product_stock{
+    color: red;
+}
+
+/* .grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.1); } */
