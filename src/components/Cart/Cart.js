@@ -1,9 +1,13 @@
 import React from 'react';
 import "./Cart.css"
+import { useAuth } from '../Login/useAuth';
 
 const Cart = (props) => {
     const cart = props.cart;
-    // console.log(cart);
+    // const auth = useAuth();
+    // console.log(auth.user);
+    // const user = useContext(UserContext);
+    // console.log(user);
     let total=0;
     for(let i=0; i<cart.length; i++){
         const product = cart[i];
@@ -34,7 +38,6 @@ const Cart = (props) => {
             {
                 props.children
             }
-            
         </div>
     );
 };
