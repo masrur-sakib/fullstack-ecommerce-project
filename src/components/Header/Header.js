@@ -27,11 +27,11 @@ const Header = () => {
             <button onClick={()=>setCount(count-1)}>-</button>
             <button onClick={()=>setCount(count+1)}>+</button> */}
             <nav>
-                <a href="/shop">Shop</a>
+                <a href="/shop">Home</a>
                 <a href="/review">Order Review</a>
                 {/* <a href="/shipping">Shipping</a> */}
                 {/* <a href="/login">Sign in</a> */}
-                {/* <a href="/inventory">Manage Inventory</a> */}
+                <a href="/inventory">Inventory</a>
                 {
                     auth.user ? <a href="/login">Sign out</a>
                     : <a href="/login">Sign In</a>

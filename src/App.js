@@ -38,9 +38,9 @@ function App() {
             <Route path="/review">
               <Review></Review>
             </Route>
-            {/* <Route path="/inventory">
-            <Inventory></Inventory>
-          </Route> */}
+            <Route path="/inventory">
+              <Inventory></Inventory>
+            </Route>
             <Route exact path="/">
               <Shop></Shop>
             </Route>
@@ -58,7 +58,7 @@ function App() {
             </Route>
           </Switch>
         </Router>
-        </AuthContextProvider>
+      </AuthContextProvider>
     </div>
   );
 }

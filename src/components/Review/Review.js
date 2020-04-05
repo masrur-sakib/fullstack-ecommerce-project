@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import "./Review.css"
 import { getDatabaseCart, removeFromDatabaseCart, processOrder } from '../../utilities/databaseManager';
-import fakeData from '../../fakeData';
 import ReviewItem from '../ReviewItem/ReviewItem';
 import Cart from '../Cart/Cart';
 import imagePlaceOrder from "../../images/giphy.gif"
@@ -14,11 +13,7 @@ const Review = () => {
     const [orderPlaced, setOrderPlaced] = useState(false);
     const auth = useAuth();
 
-    const handlePlaceOrder = () => {
-        setCart([]);
-        setOrderPlaced(true);
-        processOrder();
-    }
+    
 
     const removeProduct = (productKey) => {
         const newCart = cart.filter(pd => pd.key !== productKey);
@@ -28,19 +23,29 @@ const Review = () => {
     useEffect(() => {
         const savedCart = getDatabaseCart();
         const productKeys = Object.keys(savedCart);
-        const cartProducts = productKeys.map(key => {
-            const product = fakeData.find(pd => pd.key === key);
-            product.quantity = savedCart[key];
-            return product;
-        });
-        setCart(cartProducts);
+        console.log(productKeys);
+        fetch('http://localhost:3000/getProductsByKey', {
+            method: 'POST', 
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(productKeys)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            const cartProducts = productKeys.map(key => {
+                const product = data.find(pd => pd.key === key);
+                product.quantity = savedCart[key];
+                return product;
+            });
+            setCart(cartProducts);
+        })
     }, [])
     
     let thankYouMessage;
     let thankYouMessage1;
     if(orderPlaced){
         thankYouMessage = <h4 className="order_placed_msg">Your order is placed successfully, Thanks.</h4>
-        thankYouMessage1 = <img src={imagePlaceOrder} alt=""/>
     }
     return (
         <div className="shop_container">
@@ -54,7 +59,6 @@ const Review = () => {
                     )
                 }
                 {thankYouMessage}
-                {thankYouMessage1}
                 {
                     !cart.length && <h2>Cart is empty!, <a href="/shop">Add products in your cart.</a> </h2>
                 }
