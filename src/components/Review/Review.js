@@ -24,7 +24,7 @@ const Review = () => {
         const savedCart = getDatabaseCart();
         const productKeys = Object.keys(savedCart);
         console.log(productKeys);
-        fetch('http://localhost:3000/getProductsByKey', {
+        fetch('https://whispering-sea-18534.herokuapp.com/getProductsByKey', {
             method: 'POST', 
             headers: {
                 'Content-Type': 'application/json'

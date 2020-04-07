@@ -29,7 +29,7 @@ const Shipping = () => {
       shipment: shipInfo,
       payment: payment
     }
-    fetch('http://localhost:3000/placeOrder', {
+    fetch('https://whispering-sea-18534.herokuapp.com/placeOrder', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
