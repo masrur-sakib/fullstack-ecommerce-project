@@ -1,10 +1,8 @@
 import React, { useRef } from 'react';
 import logo from '../../images/logo.png';
 import './Header.css';
-import { useState } from 'react';
 import { useEffect } from 'react';
 import { useAuth } from '../Login/useAuth';
-import { Link } from 'react-router-dom';
 
 const usePrevious = value => {
     const prev = useRef();

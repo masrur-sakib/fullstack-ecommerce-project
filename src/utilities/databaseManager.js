@@ -15,6 +15,7 @@ const getDataKey = () => {
     return `emaJohn/carts/${userId}`
 }
 
+
 // push to local storage: a temporary place for database
 const getDatabaseCart = () => {
     const dataKey = getDataKey();

@@ -50,15 +50,9 @@ const Shipping = () => {
           <h3>Shipment Information</h3>
           <form className="shipping_form" onSubmit={handleSubmit(onSubmit)}>
             <input name="name" defaultValue={auth.user.name} ref={register({ required: true })} placeholder='Name' />
-            {
-              errors.name && <span className='error'>This field is required</span>
-            }
-
+            {errors.name && <span className='error'>This field is required</span>}
             <input name="email" defaultValue={auth.user.email} ref={register({ required: true })} placeholder='Email' />
-            {
-              errors.email && <span className='error'>This field is required</span>
-            }
-
+            {errors.email && <span className='error'>This field is required</span>}
             <input name="AddressLine1" ref={register({ required: true })} placeholder='Address Line 1' />
             {errors.AddressLine1 && <span className='error'>This field is required</span>}
             <input name="AddressLine2" ref={register} placeholder='Address Line 2' />

@@ -5,23 +5,27 @@ import Cart from '../Cart/Cart';
 import { addToDatabaseCart, getDatabaseCart } from '../../utilities/databaseManager';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import loader from '../../images/loader.gif';
+import Loading from '../Loading/Loading';
 
 const Shop = () => {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
+    const [loaderVisibility, setLoaderVisibility] = useState("block");
     useEffect(()=>{
         fetch('https://whispering-sea-18534.herokuapp.com/products')
         .then(res=>res.json())
         .then(data=>{
             setProducts(data);
-            console.log(products);
+            setLoaderVisibility("none");
+            // console.log(products);
         })
     }, [])
 
     useEffect(() => {
         const savedCart = getDatabaseCart();
         const productKeys = Object.keys(savedCart);
-        console.log(products);
+        // console.log(products);
         if(products.length){
             const cartProducts = productKeys.map(key => {
                 const product = products.find(pd => pd.key === key);
@@ -51,6 +55,8 @@ const Shop = () => {
     }
     return (
         <div className="shop_container">
+            <Loading visibility={loaderVisibility}></Loading>
+
             <div className="product_container">
                 {
                     products.map(pd => <Product
