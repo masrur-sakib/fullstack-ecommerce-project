@@ -3,7 +3,6 @@ import "./Review.css"
 import { getDatabaseCart, removeFromDatabaseCart, processOrder } from '../../utilities/databaseManager';
 import ReviewItem from '../ReviewItem/ReviewItem';
 import Cart from '../Cart/Cart';
-import imagePlaceOrder from "../../images/giphy.gif"
 import { Link } from 'react-router-dom';
 import { useAuth } from '../Login/useAuth';
 import { useRef } from 'react';
