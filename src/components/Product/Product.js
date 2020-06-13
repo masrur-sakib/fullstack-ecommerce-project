@@ -6,13 +6,14 @@ import { Link } from 'react-router-dom';
 
 const Product = (props) => {
     // const {img, name} = props.product
+    
     return (
         <div className="single_product">
             <div>
                 <img src={props.product.img} alt="" />
             </div>
             <div className="product_details">
-                <h4 className="product_name"><Link to={"/product/" + props.product.key}>{props.product.name}</Link></h4>
+                <h4 className="product_name"><Link to={"/product/"+props.product.key}>{props.product.name}</Link></h4>
                 <p><small>by:{props.product.seller} </small></p>
                 <p>$ {props.product.price} </p>
                 <p><small>Only <span className="product_stock">{props.product.stock}</span> items left, order soon</small></p>
