@@ -1,5 +1,5 @@
 <h3>React.js Ecommerce Website<h3>
-<h6>It’s a full-stack ecommerce website from where people can buy electronics gadgets and accessories. People also can order  home delivery by making online payment & providing their shipping address.</h6>
+<h6>It’s a full-stack eCommerce website from where people can buy electronics gadgets and accessories. People also can order  home delivery by making online payment & providing their shipping address.</h6>
 <h3>Technology Used:</h3>
 <ul>
     <li>
