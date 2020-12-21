@@ -15,9 +15,9 @@ const Shop = () => {
         fetch('https://whispering-sea-18534.herokuapp.com/products')
         .then(res=>res.json())
         .then(data=>{
-            setProducts(data);
+            const firstThirtyProducts = data.slice(0, 30);
+            setProducts(firstThirtyProducts);
             setLoaderVisibility("none");
-            // console.log(products);
         })
     }, [])
 
