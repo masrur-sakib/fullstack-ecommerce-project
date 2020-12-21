@@ -10,8 +10,7 @@ import Login from './components/Login/Login';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 // import { createContext } from 'react';
 import { AuthContextProvider, PrivateRoute } from './components/Login/useAuth';

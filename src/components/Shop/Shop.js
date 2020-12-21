@@ -15,8 +15,8 @@ const Shop = () => {
         fetch('https://whispering-sea-18534.herokuapp.com/products')
         .then(res=>res.json())
         .then(data=>{
-            const firstThirtyProducts = data.slice(0, 30);
-            setProducts(firstThirtyProducts);
+            const firstTwentyProducts = data.slice(0, 20);
+            setProducts(firstTwentyProducts);
             setLoaderVisibility("none");
         })
     }, [])
@@ -24,7 +24,6 @@ const Shop = () => {
     useEffect(() => {
         const savedCart = getDatabaseCart();
         const productKeys = Object.keys(savedCart);
-        // console.log(products);
         if(products.length){
             const cartProducts = productKeys.map(key => {
                 const product = products.find(pd => pd.key === key);
@@ -51,7 +50,7 @@ const Shop = () => {
         }
         setCart(newCart);
         addToDatabaseCart(product.key, count);
-    }
+    };
     return (
         <div className="shop_container">
             <Loading visibility={loaderVisibility}></Loading>
