@@ -22,12 +22,13 @@ const Login = () => {
 
     return (
         <div>
-            <h1>Join with us!</h1>
-            {
-                auth.user ? <button onClick={handleSignOuthandleSignOut}>Sign out</button>
-                    : <button onClick={handleSignIn}>Sign in with Google</button>
-            }
-
+            <div className="login-section">
+                <h4 className="mb-3">Join with us!</h4>
+                {
+                    auth.user ? <button className="btn btn-info" onClick={handleSignOuthandleSignOut}>Sign out</button>
+                        : <button className="btn btn-info" onClick={handleSignIn}>Sign in with Google</button>
+                }
+            </div>
         </div>
     );
 };

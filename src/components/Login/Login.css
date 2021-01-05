@@ -1,0 +1,11 @@
+.login-section{
+    padding: 50px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px -2px #48497926;
+    border: 1px solid #8080801a;
+    border-radius: 10px;
+    text-align: center;
+}
