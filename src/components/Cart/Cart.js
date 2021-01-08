@@ -4,10 +4,6 @@ import { useAuth } from '../Login/useAuth';
 
 const Cart = (props) => {
     const cart = props.cart;
-    // const auth = useAuth();
-    // console.log(auth.user);
-    // const user = useContext(UserContext);
-    // console.log(user);
     let total=0;
     for(let i=0; i<cart.length; i++){
         const product = cart[i];
@@ -29,7 +25,7 @@ const Cart = (props) => {
 
     return (
         <div>
-            <h4>Order Summary</h4>
+            <h4 className="text-info">Order Summary</h4>
             <p>Items Ordered: {cart.length}</p>
             <p>Product Price: {total.toFixed(2)}</p>
             <p>Tax: {tax.toFixed(2)}</p>

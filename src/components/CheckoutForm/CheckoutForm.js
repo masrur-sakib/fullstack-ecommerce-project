@@ -31,20 +31,21 @@ const CheckoutForm = (props) => {
             }
             props.handlePlaceOrder(payment);
             setPaymentError(null);
+            
         }
     };
 
     return (
         <form onSubmit={handleSubmit}>
             <CardElement />
-            <button type="submit" disabled={!stripe}>
+            <button className="mt-3 btn btn-info" type="submit" disabled={!stripe}>
                 Pay
             </button>
             {
-                paymentError && <p style={{color: 'red'}}>{paymentError}</p>
+                paymentError && <p className="mt-3 text-danger">{paymentError}</p>
             }
             {
-                paymentCompleted && <p style={{color: 'green'}}>Payment is done successfully.</p>
+                paymentCompleted && <p className="mt-3 text-success">Payment is done successfully.</p>
             }
         </form>
     );

@@ -1,12 +1,15 @@
 .shop_container{
-    display: flex;
-    margin-left: 50px;
-    padding-left: 20px;
+    padding-top: 90px;
+    margin-top: 20px;
 }
 .product_container{
-    width: 70%;
-    padding: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-    border-right: 1px solid grey;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.cart_container{
+    margin-top: 10px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 35px -2px #48497926;
 }

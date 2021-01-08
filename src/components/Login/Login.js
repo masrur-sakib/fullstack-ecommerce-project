@@ -23,10 +23,15 @@ const Login = () => {
     return (
         <div>
             <div className="login-section">
-                <h4 className="mb-3">Join with us!</h4>
                 {
-                    auth.user ? <button className="btn btn-info" onClick={handleSignOuthandleSignOut}>Sign out</button>
-                        : <button className="btn btn-info" onClick={handleSignIn}>Sign in with Google</button>
+                    auth.user ? <div>
+                            <h4 className="mb-3">Hope to see you soon.</h4>
+                            <button className="btn btn-danger" onClick={handleSignOuthandleSignOut}>Sign out</button>
+                        </div> 
+                        : <div>
+                            <h4 className="mb-3">Welcome!</h4>
+                            <button className="btn btn-info" onClick={handleSignIn}>Sign in with Google</button>
+                        </div>
                 }
             </div>
         </div>

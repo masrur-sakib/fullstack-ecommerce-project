@@ -1,6 +1,11 @@
 .review_item_style{
-    width: 70%;
-    margin: 0px 50px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid grey;
+    padding: 20px;
+    margin: 10px;
+    width: 250px;
+    height: 230px;
+    border-radius: 10px;
+    box-shadow: 0 0 35px -2px #48497926;
+}
+.review-item-product_name{
+    color: #0056B3;
 }

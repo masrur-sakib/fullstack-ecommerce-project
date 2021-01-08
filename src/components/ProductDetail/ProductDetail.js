@@ -18,14 +18,15 @@ const ProductDetail = () => {
             setLoaderVisibility("none");
         })
     }, [productKey]);
-    // console.log(product);
     return (
-        <div className="m-5 p-5">
-            <h2 className="product_detail_title">Your Product Detail:</h2>
-            <Loading visibility={loaderVisibility}></Loading>
-            {
-                product && <Product showAddToCart={false} product={product}> </Product>
-            }
+        <div className="container">
+            <h2 className="product_detail_title">Product Detail:</h2>
+            <div className="d-flex justify-content-center">
+                <Loading visibility={loaderVisibility}></Loading>
+                {
+                    product && <Product showAddToCart={false} product={product}> </Product>
+                }
+            </div>
         </div>
     );
 };

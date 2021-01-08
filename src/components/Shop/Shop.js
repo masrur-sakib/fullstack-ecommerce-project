@@ -15,7 +15,7 @@ const Shop = () => {
         fetch('https://whispering-sea-18534.herokuapp.com/products')
         .then(res=>res.json())
         .then(data=>{
-            const firstTwentyProducts = data.slice(0, 20);
+            const firstTwentyProducts = data.slice(0, 30);
             setProducts(firstTwentyProducts);
             setLoaderVisibility("none");
         })
@@ -52,25 +52,30 @@ const Shop = () => {
         addToDatabaseCart(product.key, count);
     };
     return (
-        <div className="shop_container">
-            <Loading visibility={loaderVisibility}></Loading>
-
-            <div className="product_container">
-                {
-                    products.map(pd => <Product
-                        key={pd.key}
-                        product={pd}
-                        handleAddProduct={handleAddProduct}
-                        showAddToCart={true}>
-                    </Product>)
-                }
-            </div>
-            <div className="cart_container">
-                <Cart cart={cart} >
-                    <Link to="/review">
-                        <button className="checkout_btn">Review Order</button>
-                    </Link>
-                </Cart>
+        <div className="container shop_container">
+            <div className="row">
+                <div className="col-md-9">
+                    <Loading visibility={loaderVisibility}></Loading>
+                    <div className="product_container">
+                        {
+                            products.map(pd => <Product
+                                key={pd.key}
+                                product={pd}
+                                handleAddProduct={handleAddProduct}
+                                showAddToCart={true}>
+                            </Product>)
+                        }
+                    </div>
+                </div>
+                <div className="col-md-3">
+                    <div className="cart_container">
+                        <Cart cart={cart} >
+                            <Link to="/review">
+                                <button className="cart_button btn btn-info">Review Order</button>
+                            </Link>
+                        </Cart>
+                    </div>
+                </div>
             </div>
         </div>
     );

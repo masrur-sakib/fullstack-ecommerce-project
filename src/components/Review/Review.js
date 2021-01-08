@@ -47,35 +47,40 @@ const Review = () => {
         thankYouMessage = <h4 className="order_placed_msg">Your order is placed successfully, Thanks.</h4>
     }
     return (
-        <div className="shop_container">
-            <div className="product_container">
-                {/* <h1 className="cart_item_name">Cart Items Review: {cart.length}</h1> */}
-                {
-                    cart.map(pd => <ReviewItem
-                        key={pd.key}
-                        product={pd}
-                        removeProduct={removeProduct}> </ReviewItem>
-                    )
-                }
-                {thankYouMessage}
-                {
-                    !cart.length && <h2>Cart is empty!, <a href="/shop">Add products in your cart.</a> </h2>
-                }
-            </div>
-            <div className="cart_container">
-                <Cart cart = {cart}>
-                    <Link to='/shipping'>
+        <div className="container shop_container">
+            <div className="row">
+                <div className="col-md-9">
+                    <div className="product_container">
+                        {/* <h1 className="cart_item_name">Cart Items Review: {cart.length}</h1> */}
                         {
-                            auth.user ?
-                            <button className="checkout_btn" >Proceed Checkout</button>
-                            :
-                            <button className="checkout_btn" >Sign in to Proceed</button>
-
+                            cart.map(pd => <ReviewItem
+                                key={pd.key}
+                                product={pd}
+                                removeProduct={removeProduct}> </ReviewItem>
+                            )
                         }
-                    </Link>
-                </Cart>
-            </div>
+                        {thankYouMessage}
+                        {
+                            !cart.length && <h4 className="cart-status text-danger">Cart is empty! <a href="/shop">Add products in your cart.</a> </h4>
+                        }
+                    </div>
+                </div>
+                <div className="col-md-3">
+                    <div className="cart_container">
+                        <Cart cart = {cart}>
+                            <Link to='/shipping'>
+                                {
+                                    auth.user ?
+                                    <button className="cart_button btn btn-info" >Proceed Checkout</button>
+                                    :
+                                    <button className="cart_button btn btn-info" >Sign in to Proceed</button>
 
+                                }
+                            </Link>
+                        </Cart>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

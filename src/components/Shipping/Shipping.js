@@ -44,10 +44,10 @@ const Shipping = () => {
   }
 
   return (
-    <div className="container">
+    <div className="container shipping_form_container">
       <div className="row">
         <div className="col-md-6" style={{ display: shipInfo && 'none' }}>
-          <h3>Shipment Information</h3>
+          <h3>Provide Shipment Information</h3>
           <form className="shipping_form" onSubmit={handleSubmit(onSubmit)}>
             <input name="name" defaultValue={auth.user.name} ref={register({ required: true })} placeholder='Name' />
             {errors.name && <span className='error'>This field is required</span>}
@@ -62,11 +62,11 @@ const Shipping = () => {
             {errors.country && <span className='error'>This field is required</span>}
             <input name="zipcode" ref={register({ required: true })} placeholder='Zip Code' />
             {errors.zipcode && <span className='error'>This field is required</span>}
-            <input className='shipping_btn' type="submit" />
+            <input className='btn btn-info' type="submit" />
           </form>
         </div>
         <div className="col-md-6" style={{ 'marginTop': '100px', display: shipInfo ? 'block' : 'none' }}>
-          <h3>Payment Information</h3>
+          <h3 className="mb-3">Provide Payment Information</h3>
           <Elements stripe={stripePromise}>
             <CheckoutForm handlePlaceOrder={handlePlaceOrder}>
 
