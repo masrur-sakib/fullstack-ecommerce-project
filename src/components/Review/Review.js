@@ -80,10 +80,11 @@ const Review = () => {
                         <Cart cart = {cart}>
                             <Link to='/shipping'>
                                 {
-                                    auth.user ?
+                                    cart.length && auth.user ?
                                     <button className="cart_button btn btn-info" >Proceed Checkout</button>
-                                    :
+                                    : !auth.user ?
                                     <button className="cart_button btn btn-info" >Sign in to Proceed</button>
+                                    : null
 
                                 }
                             </Link>

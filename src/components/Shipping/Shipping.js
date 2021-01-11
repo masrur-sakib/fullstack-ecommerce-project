@@ -44,10 +44,10 @@ const Shipping = () => {
   }
 
   return (
-    <div className="container shipping_form_container">
+    <div className="container form_container">
       <div className="row">
-        <div className="col-md-6" style={{ display: shipInfo && 'none' }}>
-          <h3>Provide Shipment Information</h3>
+        <div className="col-md-6 shipping_form_container" style={{ display: shipInfo && 'none' }}>
+          <h4>Provide Shipping Information</h4>
           <form className="shipping_form" onSubmit={handleSubmit(onSubmit)}>
             <input name="name" defaultValue={auth.user.name} ref={register({ required: true })} placeholder='Name' />
             {errors.name && <span className='error'>This field is required</span>}

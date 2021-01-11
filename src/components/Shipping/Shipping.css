@@ -1,11 +1,12 @@
-.shipping_form_container{
+.form_container{
     padding-top: 130px;
+    padding-bottom: 50px;
 }
 .shipping_form input{
     display: block;
     margin-top: 20px;
     padding: 15px;
-    width: 80%;
+    width: 300px;
     border: 1px solid grey;
     border-radius: 5px;
 }

@@ -5,12 +5,29 @@ import {
     useElements,
 } from '@stripe/react-stripe-js';
 import { useState } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const CheckoutForm = (props) => {
     const [paymentError, setPaymentError] = useState(null);
     const [paymentCompleted, setPaymentCompleted] = useState(null);
     const stripe = useStripe();
     const elements = useElements();
+
+    // Toast Notification Functions 
+    toast.configure();
+    const toastOrderConfirmed = () => {
+        toast.success('Your Order is Confirmed', {
+            position: toast.POSITION.BOTTOM_RIGHT, 
+            autoClose: 3000
+        })
+    }
+    const toastPaymentError = (error) => {
+        toast.error(error, {
+            position: toast.POSITION.BOTTOM_RIGHT, 
+            autoClose: 3000
+        })
+    }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -21,6 +38,7 @@ const CheckoutForm = (props) => {
         if(error){
             setPaymentError(error.message);
             setPaymentCompleted(null);
+            toastPaymentError(error.message);
         }
         else{
             setPaymentCompleted(paymentMethod);
@@ -31,7 +49,7 @@ const CheckoutForm = (props) => {
             }
             props.handlePlaceOrder(payment);
             setPaymentError(null);
-            
+            toastOrderConfirmed();
         }
     };
 
