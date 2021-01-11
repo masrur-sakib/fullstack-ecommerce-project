@@ -6,11 +6,31 @@ import { addToDatabaseCart, getDatabaseCart } from '../../utilities/databaseMana
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Loading from '../Loading/Loading';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Shop = () => {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
     const [loaderVisibility, setLoaderVisibility] = useState("block");
+
+    // Toast Notification Functions 
+    toast.configure();
+    const toastProductAdded = () => {
+        toast('Product Added to Cart', {
+            toastId: "toast-notification-product-added", 
+            position: toast.POSITION.BOTTOM_RIGHT, 
+            autoClose: 3000
+        })
+    }
+    const toastProductQuantityIncreased = () => {
+        toast('Product Quantity Increased', {
+            toastId: "toast-notification-quantity-increased",
+            position: toast.POSITION.BOTTOM_RIGHT, 
+            autoClose: 3000})
+    }
+    
+
     useEffect(()=>{
         fetch('https://whispering-sea-18534.herokuapp.com/products')
         .then(res=>res.json())
@@ -43,10 +63,12 @@ const Shop = () => {
             sameProduct.quantity = count;
             const others = cart.filter(pd => pd.key !== product.key);
             newCart = [...others, sameProduct];
+            toastProductQuantityIncreased();
         }
         else {
             product.quantity = 1;
             newCart = [...cart, product];
+            toastProductAdded();
         }
         setCart(newCart);
         addToDatabaseCart(product.key, count);

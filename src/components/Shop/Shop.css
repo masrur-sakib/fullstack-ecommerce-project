@@ -13,3 +13,11 @@
     border-radius: 10px;
     box-shadow: 0 0 35px -2px #48497926;
 }
+#toast-notification-product-added{
+    color: white;
+    background-color: #17A2B8;
+}
+#toast-notification-quantity-increased{
+    color: white;
+    background-color: #17A2B8;
+}

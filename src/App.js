@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.css';
 import Header from './components/Header/Header';
 import Shop from './components/Shop/Shop';
 import Review from './components/Review/Review';
@@ -13,12 +12,8 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-// import { createContext } from 'react';
 import { AuthContextProvider, PrivateRoute } from './components/Login/useAuth';
 import Shipping from './components/Shipping/Shipping';
-
-
-// export const UserContext = createContext();
 
 
 function App() {

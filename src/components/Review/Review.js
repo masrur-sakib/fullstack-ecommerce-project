@@ -6,18 +6,28 @@ import Cart from '../Cart/Cart';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../Login/useAuth';
 import { useRef } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Review = () => {
     const [cart, setCart] = useState([]);
     const [orderPlaced, setOrderPlaced] = useState(false);
     const auth = useAuth();
 
-    
+    // Toast Notification Functions 
+    toast.configure();
+    const toastProductRemoved = () => {
+        toast.error('Product removed from Cart', {
+            position: toast.POSITION.BOTTOM_RIGHT, 
+            autoClose: 3000
+        })
+    }
 
     const removeProduct = (productKey) => {
         const newCart = cart.filter(pd => pd.key !== productKey);
         setCart(newCart);
         removeFromDatabaseCart(productKey);
+        toastProductRemoved();
     }
     useEffect(() => {
         const savedCart = getDatabaseCart();
