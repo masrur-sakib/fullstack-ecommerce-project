@@ -1,8 +1,6 @@
 import React from 'react';
-import "./Login.css"
+import "./Login.css";
 import Auth from './useAuth';
-
-
 
 const Login = () => {
     const auth = Auth();
