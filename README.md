@@ -1,19 +1,18 @@
 ## Full Stack Ecommerce Project
 
-#### It’s a full-stack eCommerce website from where people can buy electronics gadgets and accessories. People also can order home delivery by making online payment & providing their shipping address.
+It’s a full-stack eCommerce website from where people can buy electronics gadgets and accessories. People also can order home delivery by making online payment & providing their shipping address.
 
 ### Technology Used:
 
-- **React.js**
-- **Node.js**
-- **Express.js**
-- **MongoDB**
-- **Mongoose**
-- **Firebase Auth**
-- **Heroku**
-- **Bootstrap**
-- **HTML**
-- **CSS**
+- React.js
+- Node.js
+- Express.js
+- MongoDB
+- Firebase Auth
+- Heroku
+- Bootstrap
+- HTML
+- CSS
 
 ### Project Links:
 
