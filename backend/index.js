@@ -1,8 +1,8 @@
-const express = require("express");
-var cors = require("cors");
-const bodyParser = require("body-parser");
-const MongoClient = require("mongodb").MongoClient;
-require("dotenv").config();
+const express = require('express');
+var cors = require('cors');
+const bodyParser = require('body-parser');
+const MongoClient = require('mongodb').MongoClient;
+require('dotenv').config();
 
 const app = express();
 
@@ -15,14 +15,14 @@ app.use(bodyParser.json());
 const uri = process.env.DB_PATH;
 
 let client = new MongoClient(uri, { useNewUrlParser: true });
-const users = ["Moin", "Jahid", "Saiful", "Raisul", "Akib"];
+const users = ['Moin', 'Jahid', 'Saiful', 'Raisul', 'Akib'];
 
 // database connection
 
-app.get("/products", (req, res) => {
+app.get('/products', (req, res) => {
   client = new MongoClient(uri, { useNewUrlParser: true });
   client.connect((err) => {
-    const collection = client.db("onlineStore").collection("products");
+    const collection = client.db('onlineStore').collection('products');
     // perform actions on the collection object
     // collection.find().limit(2).toArray((err, documents) => {
     // collection.find({name: 'Mobile'}).toArray((err, documents) => {
@@ -41,10 +41,10 @@ app.get("/products", (req, res) => {
   });
 });
 
-app.get("/orders", (req, res) => {
+app.get('/orders', (req, res) => {
   client = new MongoClient(uri, { useNewUrlParser: true });
   client.connect((err) => {
-    const collection = client.db("onlineStore").collection("orders");
+    const collection = client.db('onlineStore').collection('orders');
     // perform actions on the collection object
     // collection.find().limit(2).toArray((err, documents) => {
     // collection.find({name: 'Mobile'}).toArray((err, documents) => {
@@ -60,12 +60,15 @@ app.get("/orders", (req, res) => {
   });
 });
 
-app.get("/product/:key", (req, res) => {
+app.get('/product/:key', (req, res) => {
   const key = req.params.key;
 
-  client = new MongoClient(uri, { useNewUrlParser: true });
+  client = new MongoClient(uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
   client.connect((err) => {
-    const collection = client.db("onlineStore").collection("products");
+    const collection = client.db('onlineStore').collection('products');
     // perform actions on the collection object
     // collection.find().limit(2).toArray((err, documents) => {
     // collection.find({name: 'Mobile'}).toArray((err, documents) => {
@@ -81,13 +84,13 @@ app.get("/product/:key", (req, res) => {
   });
 });
 
-app.post("/getProductsByKey", (req, res) => {
+app.post('/getProductsByKey', (req, res) => {
   const key = req.params.key;
   const productKeys = req.body;
   console.log(productKeys);
   client = new MongoClient(uri, { useNewUrlParser: true });
   client.connect((err) => {
-    const collection = client.db("onlineStore").collection("products");
+    const collection = client.db('onlineStore').collection('products');
     // perform actions on the collection object
     // collection.find().limit(2).toArray((err, documents) => {
     // collection.find({name: 'Mobile'}).toArray((err, documents) => {
@@ -104,12 +107,12 @@ app.post("/getProductsByKey", (req, res) => {
 });
 
 //post
-app.post("/addProduct", (req, res) => {
+app.post('/addProduct', (req, res) => {
   //save to database
   const product = req.body;
   client = new MongoClient(uri, { useNewUrlParser: true });
   client.connect((err) => {
-    const collection = client.db("onlineStore").collection("products");
+    const collection = client.db('onlineStore').collection('products');
     // perform actions on the collection object
     collection.insert(product, (err, result) => {
       if (err) {
@@ -123,13 +126,13 @@ app.post("/addProduct", (req, res) => {
   });
 });
 
-app.post("/placeOrder", (req, res) => {
+app.post('/placeOrder', (req, res) => {
   const orderDetails = req.body;
   orderDetails.orderTime = new Date();
   console.log(orderDetails);
   client = new MongoClient(uri, { useNewUrlParser: true });
   client.connect((err) => {
-    const collection = client.db("onlineStore").collection("orders");
+    const collection = client.db('onlineStore').collection('orders');
     // perform actions on the collection object
     collection.insertOne(orderDetails, (err, result) => {
       if (err) {
@@ -144,4 +147,4 @@ app.post("/placeOrder", (req, res) => {
 });
 
 const port = process.env.PORT || 4200;
-app.listen(port, () => console.log("Listening to port 4200"));
+app.listen(port, () => console.log('Listening to port 4200'));
